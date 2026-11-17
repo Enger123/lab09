@@ -47,10 +47,11 @@ class _SignupScreenState extends State<SignupScreen> {
               children: [
                 const SizedBox(height: 30),
 
-                Text(
-                  'Create Account',
-                  textAlign: TextAlign.center,
-                  style: Theme.of(context).textTheme.headlineSmall,
+                Image.asset(
+                  'assets/images/logo.png',
+                  width: 120,
+                  height: 120,
+                  fit: BoxFit.contain,
                 ),
 
                 const SizedBox(height: 10),

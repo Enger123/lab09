@@ -57,10 +57,11 @@ class _SignInScreenState extends State<SignInScreen> {
 
                 const SizedBox(height: 20),
 
-                Text(
-                  'Welcome Back!',
-                  textAlign: TextAlign.center,
-                  style: Theme.of(context).textTheme.headlineSmall,
+                Image.asset(
+                  'assets/images/logo.png',
+                  width: 120,
+                  height: 120,
+                  fit: BoxFit.contain,
                 ),
 
                 const SizedBox(height: 10),
@@ -75,13 +76,19 @@ class _SignInScreenState extends State<SignInScreen> {
 
                 TextFormField(
                   decoration: const InputDecoration(
-                    labelText: 'Login',
+                    labelText: 'Login (Email)',
                     prefixIcon: Icon(Icons.person),
                   ),
                   validator: (value) {
                     if (value == null || value.trim().isEmpty) {
                       return 'Please enter your login';
                     }
+
+                    final emailRegex = RegExp(r'^[^@\s]+@[^@\s]+\.[^@\s]+$');
+                    if (!emailRegex.hasMatch(value.trim())) {
+                      return 'Enter a valid email address';
+                    }
+
                     return null;
                   },
                 ),
